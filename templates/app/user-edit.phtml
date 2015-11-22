@@ -1,0 +1,42 @@
+<?php $this->layout('layout::default', ['title' => $title, 'activeNavLink' => '']) ?>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-lg-offset-3 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+      <h1 class="m-y-md"><?= $title ?></h1>
+      <form name="<?= $userForm->getName() ?>"
+            method="<?= $userForm->getAttributes()['method'] ?>"
+            action="<?= $userForm->getAttributes()['action'] ?>">
+        <div class="form-group">
+          <input type="<?= $userForm->get('id')->getAttributes()['type'] ?>"
+                 name="<?= $userForm->get('id')->getName() ?>"
+                 value="<?= $userForm->get('id')->getValue() ?>">
+        </div>
+        <div class="form-group">
+          <label class="sr-only"
+                 for="<?= $userForm->get('username')->getName() ?>">
+                 <?= $userForm->get('username')->getLabel() ?></label>
+          <input class="form-control"
+                 placeholder="<?= $userForm->get('username')->getAttributes()['placeholder'] ?>"
+                 type="<?= $userForm->get('username')->getAttributes()['type'] ?>"
+                 name="<?= $userForm->get('username')->getName() ?>"
+                 value="<?= $userForm->get('username')->getValue() ?>">
+          <?= $this->fetch('partial::input-errors', ['inputErrors' => $userForm->get('username')->getMessages()]) ?>
+        </div>
+        <div class="form-group">
+          <label class="sr-only"
+                 for="<?= $userForm->get('email')->getName() ?>">
+                 <?= $userForm->get('email')->getLabel() ?></label>
+          <input class="form-control"
+                 placeholder="<?= $userForm->get('email')->getAttributes()['placeholder'] ?>"
+                 type="<?= $userForm->get('email')->getAttributes()['type'] ?>"
+                 name="<?= $userForm->get('email')->getName() ?>"
+                 value="<?= $userForm->get('email')->getValue() ?>">
+          <?= $this->fetch('partial::input-errors', ['inputErrors' => $userForm->get('email')->getMessages()]) ?>
+        </div>
+        <button class="btn btn-primary-outline" type="<?= $userForm->get('submit')->getAttributes()['type'] ?>">
+          <?= $userForm->get('submit')->getValue() ?>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

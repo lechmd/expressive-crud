@@ -1,0 +1,13 @@
+<?php if (is_array($inputErrors) && !empty($inputErrors)): ?>
+  <div class="alert alert-danger" role="alert">
+    <?php if (count($inputErrors) === 1): ?>
+      <?= reset($inputErrors) ?>
+    <?php else: ?>
+      <ul class="p-l-md">
+      <?php foreach ($inputErrors as $error): ?>
+        <li><?= $error ?></li>
+      <?php endforeach ?>
+      </ul>
+    <?php endif ?>
+  </div>
+<?php endif ?>

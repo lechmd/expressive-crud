@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title><?= $title ?></title>
+  <link rel="stylesheet" type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="/css/custom.css">
+</head>
+<body>
+  <nav class="navbar navbar-light navbar-static-top">
+    <div class="container">
+      <a class="navbar-brand" href="/">expressive-crud</a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item<?php if ($activeNavLink === 'home') {echo ' active';} ?>">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item<?php if ($activeNavLink === 'user-list') {echo ' active';} ?>">
+          <a class="nav-link" href="/user-list">Users</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <?= $this->section('content') ?>
+  <footer class="footer">
+    <div class="container">
+      <hr>
+      <p class="text-muted text-center">
+        <a class="text-muted text-center" href="https://github.com/lechmd/expressive-crud">Source code</a>
+      </p>
+    </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <?= $this->section('user-list-scripts') ?>
+</body>
+</html>
