@@ -33,8 +33,10 @@ class HomeAction
         ResponseInterface $response,
         callable $next = null
     ) {
-        $viewData = [];
-        $viewData['title'] = 'Home';
+        $viewData = [
+            'title' => 'Home',
+        ];
+
         return new HtmlResponse($this->renderer->render('app::home', $viewData));
     }
 }

@@ -43,9 +43,14 @@ class ListAction
         ResponseInterface $response,
         callable $next = null
     ) {
-        $viewData = [];
-        $viewData['title'] = 'Users list';
-        $viewData['usersList'] = $this->userService->findAllForView();
+        $viewData = [
+            'title' => 'Users list',
+        ];
+        try {
+            $viewData['usersList'] = $this->userService->findAllForView();
+        } catch (\Exception $e) {
+            return $next($request, $response->withStatus(500), 'Couldn\'t fetch users list.');
+        }
 
         return new HtmlResponse($this->renderer->render('app::user-list', $viewData));
     }

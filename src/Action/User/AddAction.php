@@ -55,8 +55,9 @@ class AddAction
         ResponseInterface $response,
         callable $next
     ) {
-        $viewData = [];
-        $viewData['title'] = 'Add user';
+        $viewData = [
+            'title' => 'Add user',
+        ];
         try {
             $form = new UserForm();
             if ($request->getMethod() === 'POST') {

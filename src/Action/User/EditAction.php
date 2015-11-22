@@ -55,8 +55,9 @@ class EditAction
         ResponseInterface $response,
         callable $next
     ) {
-        $viewData = [];
-        $viewData['title'] = 'Edit user';
+        $viewData = [
+            'title' => 'Edit user',
+        ];
         try {
             $form = new UserForm();
             if ($request->getMethod() === 'POST') {
