@@ -82,7 +82,7 @@ abstract class AbstractMapper implements EntityMapperInterface
             } else {
                 $queryBuilder->orWhere($key . ' = ?');
             }
-            $queryBuilder->setParameter($i, $key);
+            $queryBuilder->setParameter($i, $value);
             ++$i;
         }
 
